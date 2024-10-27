@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
+        android:text=""
         android:textColor="#000000"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -38,7 +39,7 @@
         android:id="@+id/tvKerahat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kerahatin girmesine son 30dk!"
+        android:text="Kerahatin girmesine son ?dk!"
         android:textColor="#7D7D7D"
         android:textSize="14sp" />
 
@@ -71,7 +72,7 @@
                 android:id="@+id/tvFajr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="05:08"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -98,7 +99,7 @@
                 android:id="@+id/tvSunrise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="06:32"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -125,7 +126,7 @@
                 android:id="@+id/tvDhuhr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12:58"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -152,7 +153,7 @@
                 android:id="@+id/tvAsr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="16:29"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -179,7 +180,7 @@
                 android:id="@+id/tvMaghrib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="19:13"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -206,7 +207,7 @@
                 android:id="@+id/tvIsha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20:32"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -240,6 +241,146 @@
             android:paddingRight="16dp"
             android:text="ARA"
             android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fajr_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="İmsak" />
+
+                <TextView
+                    android:id="@+id/fajr_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sunrise_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Güneş" />
+
+                <TextView
+                    android:id="@+id/sunrise_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/zuhr_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Öğle" />
+
+                <TextView
+                    android:id="@+id/zuhr_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/asr_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="İkindi" />
+
+                <TextView
+                    android:id="@+id/asr_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/maghrib_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Akşam" />
+
+                <TextView
+                    android:id="@+id/maghrib_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/isha_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yatsı" />
+
+                <TextView
+                    android:id="@+id/isha_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
     </LinearLayout>
 
 </LinearLayout>
