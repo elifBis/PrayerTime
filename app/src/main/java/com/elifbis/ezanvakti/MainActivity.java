@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView text_sunrise, text_fajr, text_zuhr, text_asr, text_maghrib, text_isha;
     private TextView text_fajr_time, text_sunrise_time, text_zuhr_time, text_asr_time, text_maghrib_time, text_isha_time;
-    private EditText getcity; // Şehir arama için EditText
+    private EditText getcity;
     private TextView text_city, text_date;
     private PrayerTimesService prayerTimesService;
     private LocationService locationService;
@@ -40,23 +40,56 @@ public class MainActivity extends AppCompatActivity {
         text_maghrib_time = findViewById(R.id.maghrib_time);
         text_isha_time = findViewById(R.id.isha_time);
 
-        // Initialize services
         prayerTimesService = new PrayerTimesService();
         locationService = new LocationService(this);
 
         String currentDate = locationService.getCurrentDate();
         text_date.setText(currentDate);
 
-        // Lokasyonu al ve şehir ismini güncelle
         locationService.getLastKnownLocation(city -> {
             Log.e("LocationService", "Retrieved city: " + city); // Şehir adı alınıyor mu kontrol et
             text_city.setText(city);
-            prayerTimesService.populatePrayerTimesUI(city, currentDate, text_fajr, text_sunrise, text_zuhr, text_asr, text_maghrib, text_isha);
         });
 
+        //diğer şehir için
         getPrayerDate.setOnClickListener(view -> {
             String edit_city = getcity.getText().toString(); // Şehir ismini EditText'ten al
-            prayerTimesService.populatePrayerTimesUI(edit_city, currentDate, text_fajr_time, text_sunrise_time, text_zuhr_time, text_asr_time, text_maghrib_time, text_isha_time);
+            prayerTimesService.
+                    populatePrayerTimesUI(
+                    edit_city,
+                    currentDate,
+                    text_fajr_time,
+                    text_sunrise_time,
+                    text_zuhr_time,
+                    text_asr_time,
+                    text_maghrib_time,
+                    text_isha_time);
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        locationService.setupLocationUpdates(city -> updateUIWithCity(city));
+        locationService.startLocationUpdates();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        locationService.stopLocationUpdates();
+    }
+    private void updateUIWithCity(String city) {
+        text_city.setText(city);
+        String currentDate = locationService.getCurrentDate();
+        prayerTimesService.
+                populatePrayerTimesUI(
+                        city,
+                        currentDate,
+                        text_fajr,
+                        text_sunrise,
+                        text_zuhr,
+                        text_asr,
+                        text_maghrib,
+                        text_isha);
     }
 }

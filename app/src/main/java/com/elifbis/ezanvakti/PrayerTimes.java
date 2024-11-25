@@ -17,7 +17,6 @@ public class PrayerTimes {
         this.isha = isha;
     }
 
-    // Getter ve Setter metodları
     public String getFajr() { return fajr; }
     public String getSunrise() { return sunrise; }
     public String getZuhr() { return zuhr; }
